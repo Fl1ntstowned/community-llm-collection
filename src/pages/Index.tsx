@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import CollectionCard from "@/components/CollectionCard";
 
@@ -11,7 +10,7 @@ const collections = [
 • Client community node implementation
 • Scalable architecture design for large LLMs
 • Integration of basic PowerPoint functionality`,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Phase 2: Collection Builder",
@@ -21,7 +20,7 @@ const collections = [
 • JSON metadata structure implementation
 • Advanced trait collection system
 • Community feedback integration`,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Phase 3: Magic Eden Integration",
@@ -31,7 +30,7 @@ const collections = [
 • Automated listing functionality
 • Market analytics dashboard
 • Trading volume tracking`,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Phase 4: Revenue Sharing",
@@ -41,7 +40,7 @@ const collections = [
 • Automated distribution mechanism
 • Transaction tracking dashboard
 • Revenue analytics and reporting`,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Phase 5: Community Building",
@@ -51,7 +50,7 @@ const collections = [
 • Reward distribution system
 • Collaborative development framework
 • Community governance implementation`,
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
