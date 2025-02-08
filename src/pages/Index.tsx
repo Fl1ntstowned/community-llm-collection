@@ -4,18 +4,53 @@ import CollectionCard from "@/components/CollectionCard";
 
 const collections = [
   {
-    title: "Neural Networks",
-    description: "Advanced neural network models optimized for community use",
+    title: "Phase 1: Frontend Development",
+    description: "React frontend PowerPoint with server rack infrastructure",
+    details: `• Development of React-based frontend interface
+• Server rack infrastructure setup for LLM hosting
+• Client community node implementation
+• Scalable architecture design for large LLMs
+• Integration of basic PowerPoint functionality`,
     image: "/placeholder.svg",
   },
   {
-    title: "Language Models",
-    description: "Cutting-edge language models for natural processing",
+    title: "Phase 2: Collection Builder",
+    description: "Recursive collection builder with Agent 69 trait selection",
+    details: `• Implementation of recursive collection builder
+• Agent 69 integration for trait selection
+• JSON metadata structure implementation
+• Advanced trait collection system
+• Community feedback integration`,
     image: "/placeholder.svg",
   },
   {
-    title: "Computer Vision",
-    description: "State-of-the-art computer vision models and datasets",
+    title: "Phase 3: Magic Eden Integration",
+    description: "Collection listing and inscription on Magic Eden",
+    details: `• Magic Eden marketplace integration
+• Collection inscription process
+• Automated listing functionality
+• Market analytics dashboard
+• Trading volume tracking`,
+    image: "/placeholder.svg",
+  },
+  {
+    title: "Phase 4: Revenue Sharing",
+    description: "Implement holder revenue sharing system",
+    details: `• Smart contract development for revenue sharing
+• Holder verification system
+• Automated distribution mechanism
+• Transaction tracking dashboard
+• Revenue analytics and reporting`,
+    image: "/placeholder.svg",
+  },
+  {
+    title: "Phase 5: Community Building",
+    description: "Family Mafia style community contribution system",
+    details: `• Community contribution platform
+• Tool sharing mechanism
+• Reward distribution system
+• Collaborative development framework
+• Community governance implementation`,
     image: "/placeholder.svg",
   },
 ];
@@ -49,14 +84,13 @@ const Index = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Collections</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Phases</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {collections.map((collection, index) => (
               <CollectionCard
                 key={index}
                 {...collection}
                 className="animate-fade-in"
-                style={{ animationDelay: `${index * 150}ms` }}
               />
             ))}
           </div>
