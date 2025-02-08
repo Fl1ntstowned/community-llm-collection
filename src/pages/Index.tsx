@@ -1,5 +1,9 @@
+
 import { motion } from "framer-motion";
 import CollectionCard from "@/components/CollectionCard";
+import { useEffect, useState } from "react";
+import { generatePhaseImage } from "@/services/imageService";
+import { toast } from "sonner";
 
 const collections = [
   {
@@ -10,7 +14,7 @@ const collections = [
 • Client community node implementation
 • Scalable architecture design for large LLMs
 • Integration of basic PowerPoint functionality`,
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
+    imagePrompt: "futuristic server room with holographic displays showing React code and PowerPoint presentations",
   },
   {
     title: "Phase 2: Collection Builder",
@@ -20,7 +24,7 @@ const collections = [
 • JSON metadata structure implementation
 • Advanced trait collection system
 • Community feedback integration`,
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    imagePrompt: "digital art of AI agent analyzing and selecting digital traits, futuristic interface with floating holographic traits",
   },
   {
     title: "Phase 3: Magic Eden Integration",
@@ -30,7 +34,7 @@ const collections = [
 • Automated listing functionality
 • Market analytics dashboard
 • Trading volume tracking`,
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80",
+    imagePrompt: "magical digital marketplace with glowing NFT collections and floating trade analytics",
   },
   {
     title: "Phase 4: Revenue Sharing",
@@ -40,7 +44,7 @@ const collections = [
 • Automated distribution mechanism
 • Transaction tracking dashboard
 • Revenue analytics and reporting`,
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    imagePrompt: "futuristic cryptocurrency distribution network showing digital coins flowing between connected nodes",
   },
   {
     title: "Phase 5: Community Building",
@@ -50,11 +54,33 @@ const collections = [
 • Reward distribution system
 • Collaborative development framework
 • Community governance implementation`,
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+    imagePrompt: "digital art of interconnected community members collaborating in a virtual space with flowing data streams",
   },
 ];
 
 const Index = () => {
+  const [generatedCollections, setGeneratedCollections] = useState(collections.map(c => ({...c, image: ""})));
+
+  useEffect(() => {
+    const generateImages = async () => {
+      const updatedCollections = await Promise.all(
+        collections.map(async (collection) => {
+          try {
+            const imageUrl = await generatePhaseImage(collection.title, collection.imagePrompt);
+            return { ...collection, image: imageUrl || "" };
+          } catch (error) {
+            console.error(`Error generating image for ${collection.title}:`, error);
+            toast.error(`Failed to generate image for ${collection.title}`);
+            return collection;
+          }
+        })
+      );
+      setGeneratedCollections(updatedCollections);
+    };
+
+    generateImages();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       {/* Hero Section */}
@@ -85,7 +111,7 @@ const Index = () => {
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Phases</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {collections.map((collection, index) => (
+            {generatedCollections.map((collection, index) => (
               <CollectionCard
                 key={index}
                 {...collection}
